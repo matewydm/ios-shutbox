@@ -12,6 +12,7 @@
 		92A4822C21E87C84008C5F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A4822B21E87C84008C5F15 /* Assets.xcassets */; };
 		92A4822F21E87C84008C5F15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92A4822D21E87C84008C5F15 /* LaunchScreen.storyboard */; };
 		92A4823721E87CA4008C5F15 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A4823621E87CA4008C5F15 /* MainTableViewController.swift */; };
+		AF38FABD21FCFC20006D21B2 /* ShoutMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF38FABC21FCFC20006D21B2 /* ShoutMessage.swift */; };
 		D2DB44DC688442C1CD69DE9F /* Pods_Lab2_TemplateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0ADAADF7B533A9A70174655 /* Pods_Lab2_TemplateApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		92A4822E21E87C84008C5F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92A4823021E87C84008C5F15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92A4823621E87CA4008C5F15 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		AF38FABC21FCFC20006D21B2 /* ShoutMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoutMessage.swift; sourceTree = "<group>"; };
 		B997373BDD4832AAF5E3651B /* Pods-Lab2_TemplateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lab2_TemplateApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lab2_TemplateApp/Pods-Lab2_TemplateApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E0ADAADF7B533A9A70174655 /* Pods_Lab2_TemplateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lab2_TemplateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 				92A4822B21E87C84008C5F15 /* Assets.xcassets */,
 				92A4822D21E87C84008C5F15 /* LaunchScreen.storyboard */,
 				92A4823021E87C84008C5F15 /* Info.plist */,
+				AF38FABC21FCFC20006D21B2 /* ShoutMessage.swift */,
 			);
 			path = Lab2_TemplateApp;
 			sourceTree = "<group>";
@@ -176,15 +179,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Lab2_TemplateApp-checkManifestLockResult.txt",
 			);
@@ -198,8 +197,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Lab2_TemplateApp/Pods-Lab2_TemplateApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
@@ -208,8 +205,6 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
@@ -228,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF38FABD21FCFC20006D21B2 /* ShoutMessage.swift in Sources */,
 				92A4823721E87CA4008C5F15 /* MainTableViewController.swift in Sources */,
 				92A4822521E87C84008C5F15 /* AppDelegate.swift in Sources */,
 			);
