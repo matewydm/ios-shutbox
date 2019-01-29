@@ -13,3 +13,9 @@
 "cancel"="Cancel";
 "no_sth"="No";
 "new_messages"=" new messages";
+"by"="by";
+"hours"="hour(s)";
+"minutes"="minute(s)";
+"seconds"="second(s)";
+"ago"="ago";
+"and"="and";

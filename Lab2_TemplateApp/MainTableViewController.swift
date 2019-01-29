@@ -19,7 +19,6 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.title = self.name
         self.getMessages()
     }
     
@@ -114,7 +113,7 @@ class MainTableViewController: UITableViewController {
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let timestamp = dateFormatterGet.date(from: strTimestamp)!
         let components = Calendar.current.dateComponents([.hour, .minute, .second], from: timestamp, to: Date())
-        let metadata = "by \(sender), \(components.hour!) hour(s), \(components.minute!) minute(s) and \(components.second!) second(s) ago"
+        let metadata = NSLocalizedString("by", comment:"") + " \(sender), \(components.hour!) " + NSLocalizedString("hours", comment:"") + ", \(components.minute!) " + NSLocalizedString("minutes", comment:"") + " " + NSLocalizedString("and", comment:"") + " \(components.second!) " + NSLocalizedString("seconds", comment:"") + " " + NSLocalizedString("ago", comment:"")
         
         cell.textLabel!.text = message
         cell.detailTextLabel!.text = metadata
