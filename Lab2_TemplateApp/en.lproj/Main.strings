@@ -1,0 +1,9 @@
+
+/* Class = "UINavigationItem"; title = "John Doe's Shoutbox"; ObjectID = "3Ig-ww-UHQ"; */
+"3Ig-ww-UHQ.title" = "John Doe's Shoutbox";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "dJf-aw-Xks"; */
+"dJf-aw-Xks.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "gOw-1d-wSX"; */
+"gOw-1d-wSX.text" = "Title";

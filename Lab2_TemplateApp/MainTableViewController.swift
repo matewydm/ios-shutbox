@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+
 import NotificationBannerSwift
 
 class MainTableViewController: UITableViewController {
@@ -26,24 +27,23 @@ class MainTableViewController: UITableViewController {
     
     @IBAction func refreshData(_ sender: Any) {
         self.getMessages()
-        self.tableView.reloadData()
     }
     
     @IBAction func addMessage(_ sender: Any) {
-        let alertController = UIAlertController(title: "New message", message: "Please state your name and message", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("new_message", comment: ""), message: NSLocalizedString("state_date", comment: ""), preferredStyle: .alert)
         alertController.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Your name"
+            textField.placeholder = NSLocalizedString("your_name", comment: "")
         })
         alertController.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Your message"
+            textField.placeholder = NSLocalizedString("your_message", comment: "")
         })
-        let sendAction = UIAlertAction(title: "Send", style: .default, handler: { action in
+        let sendAction = UIAlertAction(title: NSLocalizedString("send", comment: ""), style: .default, handler: { action in
             let name = alertController.textFields?[0].text
             let message = alertController.textFields?[1].text
             self.sendMessage(name!, message!)
         })
         alertController.addAction(sendAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in })
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: { _ in })
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true)
     }
@@ -64,27 +64,32 @@ class MainTableViewController: UITableViewController {
         Alamofire.request(url!, method: .get)
             .validate()
             .responseJSON { response in
+                
                 guard response.result.isSuccess
                     else {
                         print("Error while fetching remote rooms: \(String(describing: response.result.error))")
                         return
                 }
-                guard let response = response.result.value as? [ShoutMessage]
-                    else {
-                        print("Malformed data received from fetchAllRooms service")
-                        return
+                let decoder = JSONDecoder()
+                
+                do {
+                    let response = try decoder.decode(ShoutMessageResponse.self, from: response.data!)
+                    self.checkForNewMessages(response.entries);
+                    self.messages = response.entries.sorted(by: { $0.timestamp > $1.timestamp });
+                    self.tableView.reloadData()
+                } catch {
+                    print(error)
                 }
-                self.checkForNewMessages(response);
-                self.messages = response.sorted(by: { $0.timestamp > $1.timestamp });
         }
     }
     
     func checkForNewMessages(_ gotMessages: [ShoutMessage]) {
         let difference = gotMessages.count - self.messages.count;
-        var title = "No new messages"
+        var title = NSLocalizedString("no_sth", comment: "")
         if (difference > 0) {
-            title = "\(difference) new messages"
+            title = "\(difference)"
         }
+        title = title + NSLocalizedString("new_messages", comment: "")
         let banner = StatusBarNotificationBanner(title: title, style: .success)
         banner.show()
     }
@@ -103,8 +108,11 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoutboxItem", for: indexPath)
         
         let message = messages[indexPath.row].message
-        let sender = messages[indexPath.row].sender
-        let timestamp = messages[indexPath.row].timestamp
+        let sender = messages[indexPath.row].name
+        let strTimestamp = messages[indexPath.row].timestamp
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let timestamp = dateFormatterGet.date(from: strTimestamp)!
         let components = Calendar.current.dateComponents([.hour, .minute, .second], from: timestamp, to: Date())
         let metadata = "by \(sender), \(components.hour!) hour(s), \(components.minute!) minute(s) and \(components.second!) second(s) ago"
         

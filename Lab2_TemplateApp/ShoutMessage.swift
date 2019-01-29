@@ -8,9 +8,13 @@
 
 import Foundation
 
-class ShoutMessage {
+struct ShoutMessageResponse: Codable {
+    var entries: [ShoutMessage] = []
+ }
+
+class ShoutMessage: Codable {
     var id: String = ""
-    var sender: String = ""
+    var name: String = ""
     var message: String = ""
-    var timestamp: Date = Date()
+    var timestamp: String = ""
 }

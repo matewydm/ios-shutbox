@@ -6,6 +6,7 @@ target 'Lab2_TemplateApp' do
   use_frameworks!
 
   # Pods for Lab2_TemplateApp
-pod 'NotificationBannerSwift'
+pod 'NotificationBannerSwift', '1.6.3'
+pod 'MarqueeLabel/Swift', '3.1.6'
 pod 'Alamofire'
 end

@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Lab2_TemplateApp
+
+  Created by Mateusz Wydmanski on 29.01.2019.
+  Copyright © 2019 KIS AGH. All rights reserved.
+*/
+"new_message"="Nowa wiadomość";
+"state_date"="Proszę podać swoje imię i wiadomość";
+"your_name"="Twoje imię";
+"your_message"="Twoja wiadomość";
+"send"="Wyślij";
+"cancel"="Anuluj";
+"no_sth"="Brak";
+"new_messages"=" nowych wiadomości";
